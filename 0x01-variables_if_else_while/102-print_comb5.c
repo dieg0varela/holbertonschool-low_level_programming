@@ -24,11 +24,15 @@ int main(void)
 					putchar(u);
 					if (u == '9' && d == '9' && c == '8' && m == '9')
 					{
-						break;
+						continue;
 					}
 					putchar(',');
 					putchar(' ');
 				}
+			}
+			if (c == '8' && m == '9')
+			{
+				continue;
 			}
 		}
 	}
