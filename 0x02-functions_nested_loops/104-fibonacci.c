@@ -7,16 +7,16 @@
 */
 int main(void)
 {
-	unsigned long long int a, b, res, i;
+	unsigned long a, b, res, i;
 
 	a = 1;
 	b = 2;
-	printf("%llu, ", a);
-	printf("%llu, ", b);
+	printf("%lu, ", a);
+	printf("%lu, ", b);
 	for (i = 3 ; i <= 98 ; i++)
 	{
 		res = a + b;
-		printf("%llu", res);
+		printf("%lu", res);
 		if (i != 98)
 		{
 			printf(", ");
