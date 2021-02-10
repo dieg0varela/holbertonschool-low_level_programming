@@ -13,11 +13,11 @@ int main(void)
 	b = 2;
 	printf("%lu, ", a);
 	printf("%lu, ", b);
-	for (i = 3 ; i <= 98 ; i++)
+	for (i = 3 ; i <= 97 ; i++)
 	{
 		res = a + b;
 		printf("%lu", res);
-		if (i != 98)
+		if (i != 97)
 		{
 			printf(", ");
 		}
