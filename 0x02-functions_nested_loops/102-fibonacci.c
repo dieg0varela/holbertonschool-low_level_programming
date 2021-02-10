@@ -25,4 +25,5 @@ int main(void)
 		b = res;
 	}
 	printf("\n");
+	return (0);
 }
