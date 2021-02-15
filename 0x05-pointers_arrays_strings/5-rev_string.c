@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include "2-strlen.c"
 /**
 * rev_string - Entry point
 * @s: String
@@ -9,11 +8,17 @@
 */
 void rev_string(char *s)
 {
-	int lenght = _strlen(s) - 1;
+	int lenght = 0;
 
 	int i = 0;
 
 	int temp;
+
+	for (lenght = 0; s[lenght] != '\0'; lenght++)
+	{
+	}
+
+	lenght = lenght - 1;
 
 	while (i < lenght / 2)
 	{
