@@ -9,7 +9,7 @@
 */
 void rev_string(char *s)
 {
-	const int lenght = _strlen(s) - 1;
+	int lenght = _strlen(s) - 1;
 
 	int i = 0;
 
