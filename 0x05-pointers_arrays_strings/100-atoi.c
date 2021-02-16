@@ -1,4 +1,25 @@
 #include "holberton.h"
+#include <stdio.h>
+/**
+* _pow - Entry point
+* @num: number
+* @n: times
+*
+* Description: Multiplies the number n times
+* Return: Int res
+*/
+int _pow(int num, int n)
+{
+	int res = 1, i = 0;
+
+	for (i = 0 ; i < n ; i++)
+	{
+		res = res * num;
+	}
+	return (res);
+}
+
+
 /**
 * _atoi - Entry point
 * @s: String
@@ -23,13 +44,20 @@ int _atoi(char *s)
 			foundnum = 1;
 			cifras++;
 		}
-		if (foundnum == 1 && s[i] < '0' && s[i] > '9')
+		if (foundnum == 1 && ((s[i] < '0' || s[i] > '9') || s[i] == '\0'))
+		{
 			flag = 1;
+			i--;
+		}
+
 		i++;
 	}
 	for (j = i - cifras ; j < i ; j++)
 	{
-		num = s[j] * (10 ^ (cifras - i));
+		num += (s[j] - '0') * (_pow(10, cifras - 1));
+		cifras--;
 	}
+	if (minus > plus)
+		num = -num;
 	return (num);
 }
