@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
 * _pow - Entry point
 * @num: number
@@ -11,7 +12,7 @@ int _pow(int num, int n)
 {
 	int res = 1, i = 0;
 
-	for (i = 0 ; i < n ; i++)
+	for (i = 1; i < n ; i++)
 	{
 		res = res * num;
 	}
@@ -43,20 +44,27 @@ int _atoi(char *s)
 			foundnum = 1;
 			cifras++;
 		}
-		if (foundnum == 1 && ((s[i] < '0' || s[i] > '9') || s[i] == '\0'))
+		if (foundnum == 1 && (s[i] < '0' || s[i] > '9'))
 		{
 			flag = 1;
 			i--;
 		}
+		if (s[i] == '\0')
+		{
+			flag = 1;
+		}
 
 		i++;
 	}
-	for (j = i - cifras ; j < i ; j++)
+	if (foundnum == 1)
 	{
-		num += (s[j] - '0') * (_pow(10, cifras - 1));
-		cifras--;
+		for (j = i - cifras ; j < i ; j++)
+		{
+			num += (s[j] - '0') * (_pow(10, cifras));
+			cifras--;
+		}
+		if (minus > plus)
+			num = -num;
 	}
-	if (minus > plus)
-		num = -num;
 	return (num);
 }
