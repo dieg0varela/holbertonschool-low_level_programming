@@ -9,9 +9,7 @@
  */
 int main(void)
 {
-	int n = 0, i = 0, t = 0;
-	char *res;
-	char m;
+	int n = 0, i = 0;
 
 	srand(time(NULL));
 	while (n < 2772)
