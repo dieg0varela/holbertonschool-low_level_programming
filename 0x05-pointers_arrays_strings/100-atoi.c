@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
 * _pow - Entry point
 * @num: number
@@ -63,7 +62,7 @@ int _atoi(char *s)
 			num += (s[j] - '0') * (_pow(10, cifras));
 			cifras--;
 		}
-		if (minus > plus)
+		if (minus % 2 == 1)
 			num = -num;
 	}
 	return (num);
