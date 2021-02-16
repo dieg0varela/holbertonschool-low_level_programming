@@ -25,7 +25,6 @@ int main(void)
 				putchar(i);
 			}
 		}
-		
 	}
 	/*printf("%s\n", res);*/
 	return (0);
