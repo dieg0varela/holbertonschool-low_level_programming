@@ -9,17 +9,18 @@
 */
 void rev_string(char *s)
 {
-	const int lenght = _strlen(s) - 1;
+	int lenght = _strlen(s) - 1;
 
 	int i = 0;
 
-	char temp;
+	int temp;
 
-	while (i < lenght / 2)
+	while (i < lenght)
 	{
-		temp = s[lenght - i];
-		s[lenght - i] = s[i];
-		s[i] = temp;
+		temp = s[i];
+		s[i] = s[lenght];
+		s[lenght] = temp;
 		i++;
+		lenght--;
 	}
 }
