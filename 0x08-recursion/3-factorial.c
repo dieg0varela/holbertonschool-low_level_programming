@@ -6,7 +6,7 @@
 * Description: Print factorial of a number
 * Return: Int resault
 */
-int factorial (int n)
+int factorial(int n)
 {
 	int i = 1, r = 0;
 
