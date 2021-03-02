@@ -19,19 +19,17 @@ char *str_concat(char *s1, char *s2)
 	if (s2 != NULL)
 		len2 = _strlen(s2);
 
-	totlen = len1 + len2;
+	totlen = len1 + len2 + 1;
 	dest = malloc(totlen);
 	if (dest == NULL)
 		return (NULL);
 
 	for (i = 0 ; i < len1 ; i++)
 		dest[i] = s1[i];
-	for (i = totlen - len2, j = 0 ; i <= totlen ; i++, j++)
+	for (; i < totlen ; i++, j++)
 	{
-		if (i != totlen)
-			dest[i] = s2[j];
-		else
-			dest[i] = '\0';
+		dest[i] = s2[j];
 	}
+	dest[i] = '\0';
 	return (dest);
 }
