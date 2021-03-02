@@ -20,13 +20,13 @@ char *str_concat(char *s1, char *s2)
 		len2 = _strlen(s2);
 
 	totlen = len1 + len2 + 1;
-	dest = malloc(totlen);
+	dest = malloc(sizeof(char) * totlen);
 	if (dest == NULL)
 		return (NULL);
 
 	for (i = 0 ; i < len1 ; i++)
 		dest[i] = s1[i];
-	for (; i < totlen ; i++, j++)
+	for (; i < totlen - 1; i++, j++)
 	{
 		dest[i] = s2[j];
 	}
