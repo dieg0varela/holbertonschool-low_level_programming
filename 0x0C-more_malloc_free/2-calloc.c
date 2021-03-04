@@ -11,15 +11,17 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	char *ret;
-	unsigned int i = 0;
+	unsigned int i = 0, finalsize = 0;
 
-	if ((nmemb || size) == 0)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-	ret = malloc(nmemb * size);
+	finalsize = nmemb * size;
+
+	ret = malloc(finalsize);
 	if (ret == NULL)
 		return (NULL);
 
-	for (i = 0 ; i < (nmemb * size) ; i++)
+	for (i = 0 ; i < (finalsize) ; i++)
 		ret[i] = '\0';
 	return (ret);
 }
