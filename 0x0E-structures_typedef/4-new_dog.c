@@ -1,5 +1,6 @@
 #include "dog.h"
 #include "1-strdup.c"
+#include <stdlib.h>
 /**
 * new_dog - Entry point
 * @name: Name of the dog
@@ -18,8 +19,19 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (0);
 
 	ret->name = _strdup(name);
+	if (ret->name == 0)
+	{
+		free(ret);
+		return (0);
+	}
 	ret->age = age;
 	ret->owner = _strdup(owner);
+	if (ret->owner == 0)
+	{
+		free(ret->name);
+		free(ret);
+		return (0);
+	}
 
 	return (ret);
 }
