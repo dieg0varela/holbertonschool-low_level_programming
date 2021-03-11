@@ -1,8 +1,9 @@
+#include ""
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 /**
-* main- ENnry point
+* main- Entry point
 * @argc: argument count
 * @argv: argument vector
 *
@@ -10,13 +11,7 @@
 * Return: Always 0
 */
 
-/*void print(int (*function)(int, char *))
-{
-	printf("%s\n", **function);
-}*/
-
-
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char *p;
 	int i = 0;
