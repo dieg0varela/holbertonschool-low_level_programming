@@ -29,7 +29,9 @@ int main(int argc, char *argv[])
 	p = (char *)&main;
 	for (i = 0 ; i < atoi(argv[1]) ; i++)
 	{
-		printf("%.2hhx ", p[i]);
+		printf("%.2hhx", p[i]);
+		if (i < (atoi(argv[1]) - 1))
+			printf(" ");
 	}
 	printf("\n");
 	return (0);
