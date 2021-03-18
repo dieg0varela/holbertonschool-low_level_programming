@@ -3,7 +3,7 @@
 #include <string.h>
 #include "2-strlen.c"
 /**
-* add_node - Entry point
+* add_node_end - Entry point
 * @head: pointer to head of the list
 * @str: string to add in the list
 *
@@ -19,7 +19,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 
 	new_node->str = strdup(str);
-	if(!new_node->str)
+	if (!new_node->str)
 	{
 		free(new_node);
 		return (NULL);
@@ -31,7 +31,7 @@ list_t *add_node_end(list_t **head, const char *str)
 		new_node->next = NULL;
 		*head = new_node;
 	}
-	else	
+	else
 	{
 		while (searcher->next)
 			searcher = searcher->next;
