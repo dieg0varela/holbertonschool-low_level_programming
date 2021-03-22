@@ -12,7 +12,7 @@ void free_listint2(listint_t **head)
 	listint_t *aux;
 	listint_t *aux_next;
 
-	if (head)
+	if (*head)
 	{
 		aux = *head;
 		aux_next = (*head)->next;
