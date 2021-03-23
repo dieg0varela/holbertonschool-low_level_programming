@@ -4,7 +4,7 @@
 /**
 * delete_nodeint_at_index - Entry point
 * @head: Pointer to head of the list
-* @idx: place to the list you want to insert the new node
+* @index: place to the list you want to insert the new node
 *
 * Description: Delete a node in the idx place of the list
 * Return: 1 success -1 error
