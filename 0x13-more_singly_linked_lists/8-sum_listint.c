@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
-* su,_listint - Entry point
+* sum_listint - Entry point
 * @head: Pointer to head of the list
 *
 * Description: Adds all the values stored in the list
