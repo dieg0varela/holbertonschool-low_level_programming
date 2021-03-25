@@ -2,7 +2,7 @@
 #include "2-strlen.c"
 #include <stdio.h>
 /**
-* _isdigit - Entry point
+* isvalidBin - Entry point
 * @c: numbert to work
 *
 * Description: Say if c is a valid binary number or not
@@ -25,7 +25,7 @@ int isvalidBin(const char *c)
 	return (1);
 }
 /**
-* binaty_to_unit - Entry point
+* binary_to_uint - Entry point
 * @b: String contains the binary number
 *
 * Description: Convert the binary string into unsigned int
@@ -42,7 +42,7 @@ unsigned int binary_to_uint(const char *b)
 		return (0);
 
 	size = _strlen(b);
-	for ( i = size - 1 ; i >= 0 ; i--)
+	for (i = size - 1 ; i >= 0 ; i--)
 	{
 		res += (b[i] - '0') * valplace;
 		valplace *= 2;
