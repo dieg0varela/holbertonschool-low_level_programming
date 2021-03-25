@@ -1,5 +1,5 @@
 #include "holberton.h"
-#include "100-atoi.c"
+#include "2-strlen.c"
 #include <stdio.h>
 /**
 * _isdigit - Entry point
@@ -24,17 +24,6 @@ int isvalidBin(const char *c)
 	}
 	return (1);
 }
-void rec_btouint(unsigned int num, unsigned int *valplace, unsigned int *res)
-{
-	if (num)
-	{
-		*res += (num % 10) * *valplace;
-		*valplace *= 2;
-		num = num / 10;
-		rec_btouint(num, valplace, res);
-	}
-}
-
 /**
 * binaty_to_unit - Entry point
 * @b: String contains the binary number
@@ -44,14 +33,19 @@ void rec_btouint(unsigned int num, unsigned int *valplace, unsigned int *res)
 */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int res = 0, valplace = 1, num = 0;
+	unsigned int res = 0, valplace = 1, size = 0;
+	int i = 0;
 
 	if (!b)
 		return (0);
 	if (!isvalidBin(b))
 		return (0);
 
-	num = _atoi(b);
-	rec_btouint(num, &valplace, &res);
+	size = _strlen(b);
+	for ( i = size - 1 ; i >= 0 ; i--)
+	{
+		res += (b[i] - '0') * valplace;
+		valplace *= 2;
+	}
 	return (res);
 }
