@@ -9,7 +9,7 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned int len = 1, val = 1, i = 0;
+	unsigned long int len = 1, val = 1, i = 0;
 
 	while (val < n)
 	{
