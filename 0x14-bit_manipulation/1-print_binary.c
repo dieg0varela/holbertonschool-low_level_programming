@@ -14,7 +14,7 @@ void print_binary_r(unsigned long int n)
 	if (n != 0)
 	{
 		i = n & 1;
-		print_binary(n >> 1);
+		print_binary_r(n >> 1);
 		_putchar(i + '0');
 	}
 }
