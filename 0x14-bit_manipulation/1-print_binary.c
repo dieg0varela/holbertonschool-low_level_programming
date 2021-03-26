@@ -9,27 +9,12 @@
 */
 void print_binary(unsigned long int n)
 {
-	unsigned long int len = 1, val = 1, i = 0;
+	unsigned long int i = 0;
 
-	while (val < n)
+	if (n != 0)
 	{
-		len++;
-		val *= 2;
+		i = n & 1;
+		print_binary(n >> 1);
+		_putchar(i + '0');
 	}
-	for (i = len ; i != 0 ; i--)
-	{
-		if (n >= val)
-		{
-			_putchar('1');
-			n -= val;
-			val = val * 0.5;
-		}
-		else
-		{
-			if (i != len || n == 0)
-				_putchar('0');
-			val = val * 0.5;
-		}
-	}
-
 }
