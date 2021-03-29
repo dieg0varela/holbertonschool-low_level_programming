@@ -1,10 +1,10 @@
 #include "holberton.h"
 /**
-* create_file - Entry point
+* append_text_to_file - Entry point
 * @filename: Pointer to file
 * @text_content: Content to insert in the file
 *
-* Description: Create a new file with the given content
+* Description: Append text to a file
 * Return: 1 Success or -1 Fail
 */
 int append_text_to_file(const char *filename, char *text_content)
