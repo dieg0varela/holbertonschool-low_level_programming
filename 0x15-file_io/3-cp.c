@@ -42,16 +42,17 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	orig = open(argv[1], O_RDONLY);
-	if (orig == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
 	new = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	buf = malloc(sizeof(char) * 1024);
 	if (!buf)
 		return (1);
 	size = read(orig, buf, 1024);
+	if ((orig == -1) || (size == -1))
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+
 	while (size != 0)
 	{
 		if ((write(new, buf, size)) == -1 || new == -1)
