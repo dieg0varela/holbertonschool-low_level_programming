@@ -61,7 +61,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	char *val;
 
-	if (!ht || !key || !value || !ht->array)
+	if (!ht || !key)
+		return (0);
+	if (!value || !ht->array)
 		return (0);
 	if (strcmp(key, "") == 0)
 		return (0);
