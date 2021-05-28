@@ -10,9 +10,16 @@
 */
 int logic(hash_table_t *ht, const char *key, char *val)
 {
-	unsigned long int index = 0, size = 0;
+	unsigned long int index = 0;
+	hash_node_t *new_node, *temp;
 
-	index = key_index((unsigned char *)key, size);
+	new_node = malloc(sizeof(hash_node_t));
+	if (!new_node)
+	{
+		free(val);
+		return (0);
+	}
+	index = key_index((unsigned char *)key, ht->size);
 	if (ht->array[index] == NULL)
 	{
 		new_node->key = (char *)key;
@@ -52,7 +59,6 @@ int logic(hash_table_t *ht, const char *key, char *val)
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	hash_node_t *new_node, *temp;
 	char *val;
 
 	if (!ht || !key || !value)
@@ -60,14 +66,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (strcmp(key, "") == 0)
 		return (0);
 
-	size = ht->size;
-	new_node = malloc(sizeof(hash_node_t));
-	if (!new_node)
-		return (0);
 	val = strdup(value);
 	if (!val)
 	{
-		free(new_node);
 		return (0);
 	}
 
