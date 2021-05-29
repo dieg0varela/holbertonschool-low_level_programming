@@ -2,13 +2,13 @@
 /**
 * logic - Entry point
 * @ht: hash table
-* @key: key
+* @new_key: key
 * @val: value
 *
 * Description: logic for hash_table_set
 * Return: 1 on success or 0 on fail
 */
-int logic(hash_table_t *ht, const char *key, char *val)
+int logic(hash_table_t *ht, char *new_key, char *val)
 {
 	unsigned long int index = 0;
 	hash_node_t *new_node, *temp;
@@ -16,13 +16,14 @@ int logic(hash_table_t *ht, const char *key, char *val)
 	new_node = malloc(sizeof(hash_node_t));
 	if (!new_node)
 	{
+		free(new_key);
 		free(val);
 		return (0);
 	}
-	index = key_index((unsigned char *)key, ht->size);
+	index = key_index((unsigned char *)new_key, ht->size);
 	if (ht->array[index] == NULL)
 	{
-		new_node->key = (char *)key;
+		new_node->key = new_key;
 		new_node->value = val;
 		new_node->next = ht->array[index];
 		ht->array[index] = new_node;
@@ -32,7 +33,7 @@ int logic(hash_table_t *ht, const char *key, char *val)
 		temp = ht->array[index];
 		while (temp)
 		{
-			if (strcmp(temp->key, key) == 0)
+			if (strcmp(temp->key, new_key) == 0)
 			{
 				free(temp->value);
 				temp->value = val;
@@ -40,7 +41,7 @@ int logic(hash_table_t *ht, const char *key, char *val)
 			}
 			temp = temp->next;
 		}
-		new_node->key = (char *)key;
+		new_node->key = new_key;
 		new_node->value = val;
 		new_node->next = ht->array[index];
 		ht->array[index] = new_node;
@@ -59,7 +60,7 @@ int logic(hash_table_t *ht, const char *key, char *val)
 */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	char *val;
+	char *val, *new_key;
 
 	if (!ht || !key)
 		return (0);
@@ -73,6 +74,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		return (0);
 	}
+	new_key = strdup(key);
+	if (!new_key)
+	{
+		free(val);
+		return (0);
+	}
 
-	return (logic(ht, key, val));
+	return (logic(ht, new_key, val));
 }
