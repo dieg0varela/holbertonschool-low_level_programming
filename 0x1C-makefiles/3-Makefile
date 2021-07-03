@@ -17,5 +17,4 @@ fclean:
 	@${RM} *~ ${NAME}
 	@${RM} ${OBJ}
 
-re:
-	fclean all
+re: fclean all
